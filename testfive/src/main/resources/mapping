@@ -1,0 +1,7 @@
+[config]
+package.views=WEB-INF/com.testfive
+package.base=com.testfive
+
+[actions]
+*         /                           Base.index
+*         /{class}/{method}           {class}.{method}

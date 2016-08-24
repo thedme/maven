@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="testten">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="testten-web-1.0.war" deploy-path="/" handle="module:/resource/testten-web/testten-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="testten-ejb-1.0.jar" deploy-path="/" handle="module:/resource/testten-ejb/testten-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="testten-bootstrap-1.0.jar" deploy-path="/" handle="module:/resource/testten-bootstrap/testten-bootstrap">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="testten-jpa-1.0.jar" deploy-path="/lib" handle="module:/resource/testten-jpa/testten-jpa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasypt-1.9.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jasypt/jasypt/1.9.0/jasypt-1.9.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

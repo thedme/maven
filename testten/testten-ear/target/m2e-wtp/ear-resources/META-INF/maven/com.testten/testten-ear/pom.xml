@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>testten</artifactId>
+      <groupId>com.testten</groupId>
+      <version>1.0</version>
+   </parent>
+
+   <artifactId>testten-ear</artifactId>
+   <packaging>ear</packaging>
+
+   <name>testten EAR module</name>
+
+   <dependencies>
+
+      <dependency>
+         <groupId>com.testten</groupId>
+         <artifactId>testten-web</artifactId>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>com.testten</groupId>
+         <artifactId>testten-ejb</artifactId>
+         <type>ejb</type>
+      </dependency>
+
+      <dependency>
+         <groupId>com.testten</groupId>
+         <artifactId>testten-bootstrap</artifactId>
+         <type>ejb</type>
+      </dependency>
+
+      <dependency>
+         <groupId>com.testten</groupId>
+         <artifactId>testten-jpa</artifactId>
+         <type>jar</type>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <finalName>testten</finalName>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-ear-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+               <version>6</version>
+               <defaultLibBundleDir>lib</defaultLibBundleDir>
+               <modules>
+
+                  <webModule>
+                     <groupId>com.testten</groupId>
+                     <artifactId>testten-web</artifactId>
+                     <contextRoot>/testten</contextRoot>
+                  </webModule>
+
+               </modules>
+            </configuration>
+         </plugin>
+         <!-- The JBoss AS plugin deploys your ear to a local JBoss AS container -->
+         <!-- Due to Maven's lack of intelligence with EARs we need to configure
+            the jboss-as maven plugin to skip deployment for all modules. We then enable
+            it specifically in the ear module. -->
+         <plugin>
+            <groupId>org.jboss.as.plugins</groupId>
+            <artifactId>jboss-as-maven-plugin</artifactId>
+            <configuration>
+               <skip>false</skip>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+
+</project>
